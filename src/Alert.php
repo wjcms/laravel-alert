@@ -33,7 +33,7 @@ class Alert
      */
     public function success($message)
     {
-        $this->message($message, $this->types['success']);
+        $this->alert($message, $this->types['success']);
 
         return $this;
     }
@@ -43,7 +43,7 @@ class Alert
      */
     public function error($message)
     {
-        $this->message($message, $this->types['error']);
+        $this->alert($message, $this->types['error']);
 
         return $this;
     }
@@ -53,7 +53,7 @@ class Alert
      */
     public function warning($message)
     {
-        $this->message($message, $this->types['warning']);
+        $this->alert($message, $this->types['warning']);
 
         return $this;
     }
@@ -64,7 +64,7 @@ class Alert
      */
     public function info($message)
     {
-        $this->message($message, $this->types['info']);
+        $this->alert($message, $this->types['info']);
 
         return $this;
     }

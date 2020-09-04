@@ -15,13 +15,13 @@ laravel-alert,一个 laravel 信息提示的扩展包（A laravel alert of compo
 ```
 
 ```
-php artisan vendor:publish --provider="wjcms\LaravelMessage\ServiceProvider" --tag="config"
+php artisan vendor:publish --provider="wjcms\LaravelAlert\AlertServiceProvider" --tag="config"
 ```
 
 ```
-php artisan vendor:publish --provider="wjcms\LaravelMessage\ServiceProvider" --tag="views"
+php artisan vendor:publish --provider="wjcms\LaravelAlert\AlertServiceProvider" --tag="views"
 ```
 
 ```
-php artisan vendor:publish --provider="wjcms\LaravelMessage\ServiceProvider" --tag="public"
+php artisan vendor:publish --provider="wjcms\LaravelAlert\AlertServiceProvider" --tag="public"
 ```
