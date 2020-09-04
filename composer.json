@@ -1,0 +1,27 @@
+{
+  "name": "wjcms/laravel-alert",
+  "description": "laravel-alert,一个laravel信息提示的扩展包（A laravel alert composer package）",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "神兵小将wjcms",
+      "email": "wjcms@qq.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=7.0.0",
+    "illuminate/support": "*",
+    "illuminate/config": "*",
+    "illuminate/database": "*"
+  },
+  "autoload": {
+    "files": [
+      "src/helpers.php"
+    ],
+    "psr-4": {
+      "wjcms\\LaravelAlert\\": "src"
+    }
+  }
+}
