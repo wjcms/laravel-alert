@@ -25,3 +25,12 @@ php artisan vendor:publish --provider="wjcms\LaravelAlert\AlertServiceProvider" 
 ```
 php artisan vendor:publish --provider="wjcms\LaravelAlert\AlertServiceProvider" --tag="public"
 ```
+
+
+
+```
+use wjcms\LaravelAlert\Facades\Alert;
+Alert::error('操作失败！');
+return back();
+```
+

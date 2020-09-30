@@ -31,56 +31,71 @@ class Alert
     /**
      * success类型实现
      */
-    public function success($message)
+    public function success($message,$callback)
     {
         $this->alert($message, $this->types['success']);
 
-        return $this;
+        return $this->callback($callback);
     }
 
     /**
      * error类型实现
      */
-    public function error($message)
+    public function error($message,$callback)
     {
         $this->alert($message, $this->types['error']);
 
-        return $this;
+        return $this->callback($callback);
     }
 
     /**
      * warning类型实现
      */
-    public function warning($message)
+    public function warning($message,$callback)
     {
         $this->alert($message, $this->types['warning']);
 
-        return $this;
+        return $this->callback($callback);
     }
 
 
     /**
      * info类型实现
      */
-    public function info($message)
+    public function info($message,$callback)
     {
         $this->alert($message, $this->types['info']);
 
-        return $this;
+        return $this->callback($callback);
+    }
+
+
+    /**
+     * 消息展示后的回调
+     */
+    public function callback($callback){
+       if ($callback=='back') {
+            return back();
+       }else if(preg_match('/^route(*$)/',$callback){
+            return redirect()->$callback;
+       }else if(preg_match("/^(http:\/\/)?([^\/]+)/i", $callback){
+            return redirect()->away($callback);
+       }
     }
 
     /**
      * 这里创建消息方法
      */
-    public function alert($message, $type = null)
+    public function alert($message, $type = null,$callback='back')
     {
         if (!isset($type)) {
             $type = $this->types['default'];
         }
 
-        array_push($this->alerts, [
+        array_push($this->alerts, [            
+            'type' => $type,
             'message' => $message,
-            'type' => $type
+            'callback' => $callback
         ]);
         $this->flash();
 
