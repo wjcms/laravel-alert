@@ -99,8 +99,6 @@ class Alert
         $this->flash();
         
         $this->callback($callback);
-
-        return $this;
     }
 
     /**
