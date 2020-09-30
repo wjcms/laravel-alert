@@ -34,7 +34,7 @@ php artisan vendor:publish --provider="wjcms\LaravelAlert\AlertServiceProvider"
 ```
 use wjcms\LaravelAlert\Facades\Alert;
 
-return Alert::alert('添加成功！','success',route('admin.article.index'));
+Alert::success('添加成功！');
 ```
 
 
