@@ -31,42 +31,42 @@ class Alert
     /**
      * success类型实现
      */
-    public function success($message,$callback)
+    public function success($message)
     {
         $this->alert($message, $this->types['success']);
 
-        return $this->callback($callback);
+        return $this;
     }
 
     /**
      * error类型实现
      */
-    public function error($message,$callback)
+    public function error($message)
     {
         $this->alert($message, $this->types['error']);
 
-        return $this->callback($callback);
+        return $this;
     }
 
     /**
      * warning类型实现
      */
-    public function warning($message,$callback)
+    public function warning($message)
     {
         $this->alert($message, $this->types['warning']);
 
-        return $this->callback($callback);
+        return $this;
     }
 
 
     /**
      * info类型实现
      */
-    public function info($message,$callback)
+    public function info($message)
     {
         $this->alert($message, $this->types['info']);
 
-        return $this->callback($callback);
+        return $this;
     }
 
 
@@ -76,10 +76,10 @@ class Alert
     public function callback($callback){
        if ($callback=='back') {
             return back();
-       }else if(preg_match('/^route(*$)/',$callback){
-            return redirect()->$callback;
        }else if(preg_match("/^(http:\/\/)?([^\/]+)/i", $callback){
             return redirect()->away($callback);
+       }else{
+            return redirect()->route($callback);
        }
     }
 
@@ -92,12 +92,13 @@ class Alert
             $type = $this->types['default'];
         }
 
-        array_push($this->alerts, [            
-            'type' => $type,
+        array_push($this->alerts, [                     
             'message' => $message,
-            'callback' => $callback
+            'type' => $type
         ]);
         $this->flash();
+        
+        $this->callback($callback);
 
         return $this;
     }

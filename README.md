@@ -33,9 +33,8 @@ php artisan vendor:publish --provider="wjcms\LaravelAlert\AlertServiceProvider"
 2. 控制器调用
 ```
 use wjcms\LaravelAlert\Facades\Alert;
-return Alert::error('操作失败！','back');
 
-return Alert::success('添加成功！',route('admin.article.index'));
+return Alert::alert('添加成功！','success',route('admin.article.index'));
 ```
 
 
