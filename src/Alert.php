@@ -35,7 +35,9 @@ class Alert
     {
         $this->alert($message, $this->types['success']);
 
-        return $this->callback($callback);
+        $this->callback($callback);
+
+        return $this;
     }
 
     /**
@@ -45,7 +47,9 @@ class Alert
     {
         $this->alert($message, $this->types['error']);
 
-        return $this->callback($callback);
+        $this->callback($callback);
+
+        return $this;
     }
 
     /**
@@ -55,7 +59,9 @@ class Alert
     {
         $this->alert($message, $this->types['warning']);
 
-        return $this->callback($callback);
+        $this->callback($callback);
+
+        return $this;
     }
 
 
@@ -66,7 +72,9 @@ class Alert
     {
         $this->alert($message, $this->types['info']);
 
-        return $this->callback($callback);
+        $this->callback($callback);
+
+        return $this;
     }
 
 
@@ -75,11 +83,11 @@ class Alert
      */
     public function callback($callback){
        if ($callback=='back') {
-            back();
+            return back();
        }else if(preg_match('/^route(*$)/',$callback){
-            redirect()->$callback;
+            return redirect()->$callback;
        }else if(preg_match("/^(http:\/\/)?([^\/]+)/i", $callback){
-            redirect()->away($callback);
+            return redirect()->away($callback);
        }
 
        return $this;
