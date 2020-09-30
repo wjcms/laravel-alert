@@ -75,12 +75,14 @@ class Alert
      */
     public function callback($callback){
        if ($callback=='back') {
-            return back();
+            back();
        }else if(preg_match('/^route(*$)/',$callback){
-            return redirect()->$callback;
+            redirect()->$callback;
        }else if(preg_match("/^(http:\/\/)?([^\/]+)/i", $callback){
-            return redirect()->away($callback);
+            redirect()->away($callback);
        }
+
+       return $this;
     }
 
     /**
