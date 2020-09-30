@@ -32,15 +32,11 @@ class Alert
         ]);
         session()->flash('alerts', $this->alerts);
 
-
         if($callback == 'back'){
-            sleep(3);
             return back();
         }else if(preg_match('/^((https|http)?:\/\/)[^\s]+/', $callback)){
-            sleep(3);
             return redirect()->away($callback);
         }else{
-            sleep(3);
             return redirect()->route($callback);
         }
     }
